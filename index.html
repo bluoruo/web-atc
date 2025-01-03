@@ -2,33 +2,241 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ZSAM ATC Radio</title>
+    <title>Air Traffic Control Radio WebSite by Comanche Lab. </title>
     <script src="js/jquery.3.6.4.min.js"></script>
     <script src="js/mediaelement-and-player.7.0.7.min.js"></script>
+    <script src="js/web-audio-peak-meter-3.1.0.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaelementplayer.7.0.7.min.css">
+    <link rel="stylesheet" href="css/layui.2.9.20.css">
 </head>
 <body>
-<div class="container">
-    <div class="player" id="playerMain" style="width: 18em;">
-        <audio id="my-audio" preload="auto" crossorigin="anonymous" controls="controls" style="width: 100%;">
-            <source src="http://192.168.2.130:8000/app01.mp3" type="audio/mp3">
-        </audio>
+<!-- header -->
+<div class="header">
+    <div class="layui-container">
+        <div class="header-logo">
+            <a href="index.html">ATC Radio</a>
+        </div>
+        <div class="header-nav">
+            <ul class="layui-nav layui-bg-gray">
+                <li class="layui-nav-item"><a href="https://www.cmche.com">Comanche Lab.</a></li>
+                <li class="layui-nav-item"><a href="about.html">About</a></li>
+            </ul>
+        </div>
     </div>
-    <div id="peak-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
-    <script src="js/web-audio-peak-meter-3.1.0.min.js"></script>
-    <script>
-		const myMeterElement = document.getElementById('peak-meter');
-		const myAudio = document.getElementById('my-audio');
-		const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-		const sourceNode = audioCtx.createMediaElementSource(myAudio);
-		sourceNode.connect(audioCtx.destination);
-		const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
-		myAudio.addEventListener('play', function () {
-			audioCtx.resume();
-		});
-    </script>
+</div>
 
+<!-- content -->
+<div class="content">
+    <div class="layui-container audio-list">
+        <!-- airport content -->
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset1">
+                Xiamen Gaoqi Airport (IATA: XMN, ICAO: ZSAM)
+            </div>
+        </div>
+        <hr>
+
+        <!-- ATIS -->
+        <div class="layui-row">
+            <div class="layui-col-col-xs6 layui-col-md-offset1">
+                <span class="audio-title">ATIS: </span>
+                <span class="audio-atis">ZSAM 030700Z 08007MPS CAVOK 19/05 Q1019 NOSIG</span>
+            </div>
+        </div>
+        <hr>
+
+        <!-- audio player -->
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset1">Approach 01 - AM 121.35 MHz</div>
+            <div class="layui-col-md6 layui-col-md-offset1">
+                <div class="player" style="width: 18em;">
+                    <audio id="app01-audio" preload="none" crossorigin="anonymous" controls="controls"
+                           style="width: 100%;">
+                        <source src="https://atc.cmche.net/app01.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <div id="app01-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+                <script>
+					const myMeterElement = document.getElementById('app01-audio');
+					const myAudio = document.getElementById('app01-meter');
+					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					const sourceNode = audioCtx.createMediaElementSource(myAudio);
+					sourceNode.connect(audioCtx.destination);
+					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
+					myAudio.addEventListener('play', function () {
+						audioCtx.resume();
+					});
+                </script>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset1">Approach 02 - AM 120.2 MHz</div>
+            <div class="layui-col-md6 layui-col-md-offset1">
+                <div class="player" style="width: 18em;">
+                    <audio id="app02-audio" preload="none" crossorigin="anonymous" controls="controls"
+                           style="width: 100%;">
+                        <source src="https://atc.cmche.net/app02.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <div id="app02-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+                <script>
+					const myMeterElement = document.getElementById('app02-audio');
+					const myAudio = document.getElementById('app02-meter');
+					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					const sourceNode = audioCtx.createMediaElementSource(myAudio);
+					sourceNode.connect(audioCtx.destination);
+					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
+					myAudio.addEventListener('play', function () {
+						audioCtx.resume();
+					});
+                </script>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset1">Tower - AM 118.25 MHz</div>
+            <div class="layui-col-md6 layui-col-md-offset1">
+                <div class="player" style="width: 18em;">
+                    <audio id="tower-audio" preload="none" crossorigin="anonymous" controls="controls"
+                           style="width: 100%;">
+                        <source src="https://atc.cmche.net/tower.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <div id="tower-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+                <script>
+					const myMeterElement = document.getElementById('tower-audio');
+					const myAudio = document.getElementById('tower-meter');
+					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					const sourceNode = audioCtx.createMediaElementSource(myAudio);
+					sourceNode.connect(audioCtx.destination);
+					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
+					myAudio.addEventListener('play', function () {
+						audioCtx.resume();
+					});
+                </script>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset1">Ground - AM 121.7 MHz</div>
+            <div class="layui-col-md6 layui-col-md-offset1">
+                <div class="player" style="width: 18em;">
+                    <audio id="ground-audio" preload="none" crossorigin="anonymous" controls="controls"
+                           style="width: 100%;">
+                        <source src="https://atc.cmche.net/ground.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <div id="ground-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+                <script>
+					const myMeterElement = document.getElementById('ground-audio');
+					const myAudio = document.getElementById('ground-meter');
+					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					const sourceNode = audioCtx.createMediaElementSource(myAudio);
+					sourceNode.connect(audioCtx.destination);
+					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
+					myAudio.addEventListener('play', function () {
+						audioCtx.resume();
+					});
+                </script>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset1">Terminal 3 - AM 121.8 MHz</div>
+            <div class="layui-col-md6 layui-col-md-offset1">
+                <div class="player" style="width: 18em;">
+                    <audio id="terminal3-audio" preload="none" crossorigin="anonymous" controls="controls"
+                           style="width: 100%;">
+                        <source src="https://atc.cmche.net/terminal3.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <div id="terminal3-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+                <script>
+					const myMeterElement = document.getElementById('terminal3-audio');
+					const myAudio = document.getElementById('terminal3-meter');
+					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					const sourceNode = audioCtx.createMediaElementSource(myAudio);
+					sourceNode.connect(audioCtx.destination);
+					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
+					myAudio.addEventListener('play', function () {
+						audioCtx.resume();
+					});
+                </script>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset1">Terminal 4 - AM 121.6 MHz</div>
+            <div class="layui-col-md6 layui-col-md-offset1">
+                <div class="player" style="width: 18em;">
+                    <audio id="terminal4-audio" preload="none" crossorigin="anonymous" controls="controls"
+                           style="width: 100%;">
+                        <source src="https://atc.cmche.net/terminal4.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <div id="terminal4-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+                <script>
+					const myMeterElement = document.getElementById('terminal4-audio');
+					const myAudio = document.getElementById('terminal4-meter');
+					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					const sourceNode = audioCtx.createMediaElementSource(myAudio);
+					sourceNode.connect(audioCtx.destination);
+					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
+					myAudio.addEventListener('play', function () {
+						audioCtx.resume();
+					});
+                </script>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-xs-offset3">Delivery - AM 121.95 MHz</div>
+            <div class="layui-col-xs6 layui-col-xs-offset3">
+                <div class="player" style="width: 18em;">
+                    <audio id="delivery-audio" preload="none" crossorigin="anonymous" controls="controls"
+                           style="width: 100%;">
+                        <source src="https://atc.cmche.net/delivery.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <div id="delivery-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+                <script>
+					const myMeterElement = document.getElementById('delivery-audio');
+					const myAudio = document.getElementById('delivery-meter');
+					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					const sourceNode = audioCtx.createMediaElementSource(myAudio);
+					sourceNode.connect(audioCtx.destination);
+					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
+					myAudio.addEventListener('play', function () {
+						audioCtx.resume();
+					});
+                </script>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-xs-offset3">General - AM 121.5 MHz</div>
+            <div class="layui-col-xs6 layui-col-xs-offset3">
+                <div class="player" style="width: 18em;">
+                    <audio id="general-audio" preload="none" crossorigin="anonymous" controls="controls"
+                           style="width: 100%;">
+                        <source src="https://atc.cmche.net/all.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <div id="general-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+                <script>
+					const myMeterElement = document.getElementById('general-audio');
+					const myAudio = document.getElementById('general-meter');
+					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+					const sourceNode = audioCtx.createMediaElementSource(myAudio);
+					sourceNode.connect(audioCtx.destination);
+					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
+					myAudio.addEventListener('play', function () {
+						audioCtx.resume();
+					});
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<div class="footer" style="text-align: center;">
+            <p>© Powered By Comanche Lab.</p>
 </div>
 </body>
 <script>
