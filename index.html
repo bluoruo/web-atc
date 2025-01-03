@@ -1,26 +1,42 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>ZSAM ATC Radio</title>
-        <script src="js/jquery.3.6.4.min.js"></script>
-        <script src="js/mediaelement-and-player.7.0.7.min.js"></script>
-        <link rel="stylesheet" href="css/mediaelementplayer.7.0.7.min.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="player">
-                <audio id="player" controls="controls" autoplay="autoplay">
-                    <source src="http://192.168.2.130:8000/app01.mp3" type="audio/mp3">
-                </audio>
-            </div>
-        </div>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>ZSAM ATC Radio</title>
+    <script src="js/jquery.3.6.4.min.js"></script>
+    <script src="js/mediaelement-and-player.7.0.7.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mediaelementplayer.7.0.7.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="player" id="playerMain" style="width: 18em;">
+        <audio id="my-audio" preload="auto" crossorigin="anonymous" controls="controls" style="width: 100%;">
+            <source src="http://192.168.2.130:8000/app01.mp3" type="audio/mp3">
+        </audio>
+    </div>
+    <div id="peak-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+    <script src="js/web-audio-peak-meter-3.1.0.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('audio').mediaelementplayer({
-                alwaysShowControls: true,
-                features: ['playpause','progress','volume'],
-            });
-        });
+		const myMeterElement = document.getElementById('peak-meter');
+		const myAudio = document.getElementById('my-audio');
+		const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+		const sourceNode = audioCtx.createMediaElementSource(myAudio);
+		sourceNode.connect(audioCtx.destination);
+		const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
+		myAudio.addEventListener('play', function () {
+			audioCtx.resume();
+		});
     </script>
+
+</div>
+</body>
+<script>
+	$(document).ready(function () {
+		$('audio').mediaelementplayer({
+			alwaysShowControls: true,
+			features: ['playpause', 'progress', 'volume'],
+		});
+	});
+</script>
 </html>
