@@ -1,0 +1,26 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ZSAM ATC Radio</title>
+        <script src="js/jquery.3.6.4.min.js"></script>
+        <script src="js/mediaelement-and-player.7.0.7.min.js"></script>
+        <link rel="stylesheet" href="css/mediaelementplayer.7.0.7.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="player">
+                <audio id="player" controls="controls" autoplay="autoplay">
+                    <source src="http://192.168.2.130:8000/app01.mp3" type="audio/mp3">
+                </audio>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function() {
+            $('audio').mediaelementplayer({
+                alwaysShowControls: true,
+                features: ['playpause','progress','volume'],
+            });
+        });
+    </script>
+</html>
