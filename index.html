@@ -57,17 +57,6 @@
                     </audio>
                 </div>
                 <div id="app01-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
-                <script>
-					const myMeterElement = document.getElementById('app01-audio');
-					const myAudio = document.getElementById('app01-meter');
-					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-					const sourceNode = audioCtx.createMediaElementSource(myAudio);
-					sourceNode.connect(audioCtx.destination);
-					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
-					myAudio.addEventListener('play', function () {
-						audioCtx.resume();
-					});
-                </script>
             </div>
         </div>
         <div class="layui-row">
@@ -80,17 +69,6 @@
                     </audio>
                 </div>
                 <div id="app02-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
-                <script>
-					const myMeterElement = document.getElementById('app02-audio');
-					const myAudio = document.getElementById('app02-meter');
-					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-					const sourceNode = audioCtx.createMediaElementSource(myAudio);
-					sourceNode.connect(audioCtx.destination);
-					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
-					myAudio.addEventListener('play', function () {
-						audioCtx.resume();
-					});
-                </script>
             </div>
         </div>
         <div class="layui-row">
@@ -103,17 +81,6 @@
                     </audio>
                 </div>
                 <div id="tower-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
-                <script>
-					const myMeterElement = document.getElementById('tower-audio');
-					const myAudio = document.getElementById('tower-meter');
-					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-					const sourceNode = audioCtx.createMediaElementSource(myAudio);
-					sourceNode.connect(audioCtx.destination);
-					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
-					myAudio.addEventListener('play', function () {
-						audioCtx.resume();
-					});
-                </script>
             </div>
         </div>
         <div class="layui-row">
@@ -126,17 +93,6 @@
                     </audio>
                 </div>
                 <div id="ground-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
-                <script>
-					const myMeterElement = document.getElementById('ground-audio');
-					const myAudio = document.getElementById('ground-meter');
-					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-					const sourceNode = audioCtx.createMediaElementSource(myAudio);
-					sourceNode.connect(audioCtx.destination);
-					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
-					myAudio.addEventListener('play', function () {
-						audioCtx.resume();
-					});
-                </script>
             </div>
         </div>
         <div class="layui-row">
@@ -149,17 +105,6 @@
                     </audio>
                 </div>
                 <div id="terminal3-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
-                <script>
-					const myMeterElement = document.getElementById('terminal3-audio');
-					const myAudio = document.getElementById('terminal3-meter');
-					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-					const sourceNode = audioCtx.createMediaElementSource(myAudio);
-					sourceNode.connect(audioCtx.destination);
-					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
-					myAudio.addEventListener('play', function () {
-						audioCtx.resume();
-					});
-                </script>
             </div>
         </div>
         <div class="layui-row">
@@ -172,17 +117,6 @@
                     </audio>
                 </div>
                 <div id="terminal4-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
-                <script>
-					const myMeterElement = document.getElementById('terminal4-audio');
-					const myAudio = document.getElementById('terminal4-meter');
-					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-					const sourceNode = audioCtx.createMediaElementSource(myAudio);
-					sourceNode.connect(audioCtx.destination);
-					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
-					myAudio.addEventListener('play', function () {
-						audioCtx.resume();
-					});
-                </script>
             </div>
         </div>
         <div class="layui-row">
@@ -195,17 +129,6 @@
                     </audio>
                 </div>
                 <div id="delivery-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
-                <script>
-					const myMeterElement = document.getElementById('delivery-audio');
-					const myAudio = document.getElementById('delivery-meter');
-					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-					const sourceNode = audioCtx.createMediaElementSource(myAudio);
-					sourceNode.connect(audioCtx.destination);
-					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
-					myAudio.addEventListener('play', function () {
-						audioCtx.resume();
-					});
-                </script>
             </div>
         </div>
         <div class="layui-row">
@@ -218,17 +141,6 @@
                     </audio>
                 </div>
                 <div id="general-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
-                <script>
-					const myMeterElement = document.getElementById('general-audio');
-					const myAudio = document.getElementById('general-meter');
-					const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-					const sourceNode = audioCtx.createMediaElementSource(myAudio);
-					sourceNode.connect(audioCtx.destination);
-					const myMeter = new webAudioPeakMeter.WebAudioPeakMeter(sourceNode, myMeterElement);
-					myAudio.addEventListener('play', function () {
-						audioCtx.resume();
-					});
-                </script>
             </div>
         </div>
     </div>
@@ -239,13 +151,14 @@
             <p>© Powered By Comanche Lab.</p>
 </div>
 </body>
+<script src="js/player-meter.js"></script>
 <script>
 	// 获取ATIS信息的函数
 	function getAtis() {
 		$.ajax({
-			url: 'https://aviationweather.gov/api/data/metar?hours=0&ids=ZSAM',
+			url: '/zsam-atis.txt',
 			type: 'GET',
-			dataType: 'txt',
+			dataType: 'text',
 			success: function (data) {
 				if (data === '' || data === null || data === undefined) {
 					$('.audio-atis').text('ATIS信息获取失败');

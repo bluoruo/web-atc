@@ -6,12 +6,6 @@ body {
     color: #444;
 }
 
-h1,
-h2,
-h3 {
-    line-height: 1.2;
-}
-
 
 pre {
     margin: 0;
@@ -35,6 +29,7 @@ pre {
     position: relative;
     height: 5em;
     line-height: 5em;
+    font-size: 1.8em;
 }
 .header-logo {
     position: absolute;
