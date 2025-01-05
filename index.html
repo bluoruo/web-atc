@@ -132,7 +132,31 @@
             </div>
         </div>
         <div class="layui-row">
-            <div class="layui-col-md6 layui-col-md-offset3">General - AM 121.5 MHz</div>
+            <div class="layui-col-md6 layui-col-md-offset3">Control 01 - AM 120.525 MHz</div>
+            <div class="layui-col-md6 layui-col-md-offset3">
+                <div class="player" style="width: 18em;">
+                    <audio id="ctr01-audio" preload="none" crossorigin="anonymous" controls="controls"
+                           style="width: 100%;">
+                        <source src="https://atc.cmche.net/ctr01.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <div id="ctr01-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset3">Control 02 - AM 120.2 MHz</div>
+            <div class="layui-col-md6 layui-col-md-offset3">
+                <div class="player" style="width: 18em;">
+                    <audio id="ctr02-audio" preload="none" crossorigin="anonymous" controls="controls"
+                           style="width: 100%;">
+                        <source src="https://atc.cmche.net/ctr02.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                <div id="ctr02-meter" style="width: 18em; height: 2em; margin: 0 0;"></div>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md6 layui-col-md-offset3">General - AM 133.175 MHz</div>
             <div class="layui-col-md6 layui-col-md-offset3">
                 <div class="player" style="width: 18em;">
                     <audio id="general-audio" preload="none" crossorigin="anonymous" controls="controls"
@@ -148,7 +172,7 @@
 
 <!-- footer -->
 <div class="footer" style="text-align: center;">
-            <p>© Powered By Comanche Lab.</p>
+    <p>© Powered By Comanche Lab.</p>
 </div>
 </body>
 <script src="js/player-meter.js"></script>
@@ -171,17 +195,18 @@
 			}
 		});
 	}
-    /* 页面加载完毕后 */
+
+	/* 页面加载完毕后 */
 	$(document).ready(function () {
 		/* 先去获取ATIS信息 */
-        getAtis();
-        /* 初始化音频播放器 */
+		getAtis();
+		/* 初始化音频播放器 */
 		$('audio').mediaelementplayer({
 			alwaysShowControls: true,
 			features: ['playpause', 'progress', 'volume'],
 		});
 	});
 	/* 每个10分钟获取一次ATIS信息 */
-    setInterval(getAtis, 600000);
+	setInterval(getAtis, 600000);
 </script>
 </html>

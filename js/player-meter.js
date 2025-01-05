@@ -68,6 +68,26 @@ const deliveryMeter = new webAudioPeakMeter.WebAudioPeakMeter(deliverySourceNode
 deliveryAudio.addEventListener('play', function () {
 	deliveryAudioCtx.resume();
 });
+/* ctr01 */
+const ctr01MeterElement = document.getElementById('ctr01-meter');
+const ctr01Audio = document.getElementById('ctr01-audio');
+const ctr01AudioCtx = new window.AudioContext();
+const ctr01SourceNode = ctr01AudioCtx.createMediaElementSource(ctr01Audio);
+ctr01SourceNode.connect(ctr01AudioCtx.destination);
+const ctr01Meter = new webAudioPeakMeter.WebAudioPeakMeter(ctr01SourceNode, ctr01MeterElement);
+ctr01Audio.addEventListener('play', function () {
+	ctr01AudioCtx.resume();
+});
+/* ctr02 */
+const ctr02MeterElement = document.getElementById('ctr02-meter');
+const ctr02Audio = document.getElementById('ctr02-audio');
+const ctr02AudioCtx = new window.AudioContext();
+const ctr02SourceNode = ctr02AudioCtx.createMediaElementSource(ctr02Audio);
+ctr02SourceNode.connect(ctr02AudioCtx.destination);
+const ctr02Meter = new webAudioPeakMeter.WebAudioPeakMeter(ctr02SourceNode, ctr02MeterElement);
+ctr02Audio.addEventListener('play', function () {
+	ctr02AudioCtx.resume();
+});
 /* all */
 const allMeterElement = document.getElementById('all-meter');
 const allAudio = document.getElementById('all-audio');
